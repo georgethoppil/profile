@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
   { label: "About", href: "#about" },
@@ -27,27 +28,18 @@ export default function Header() {
       transition={{ duration: 0.5, delay: 0.1 }}
       className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(10,10,18,0.72)" : "transparent",
+        background: scrolled ? "var(--header-bg)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid var(--hairline)" : "1px solid transparent",
       }}
     >
       <nav
         className="max-w-6xl mx-auto px-6 flex items-center justify-between transition-all duration-300"
         style={{ height: scrolled ? 56 : 76 }}
       >
-        {/* Monogram */}
-        <a href="#top" className="flex items-center gap-2 group" aria-label="George Thoppil — home">
-          <span
-            className="grid place-items-center w-9 h-9 rounded-lg font-bold text-sm transition-transform duration-200 group-hover:scale-105"
-            style={{
-              background: "linear-gradient(135deg, #06b6d4, #818cf8)",
-              color: "#0a0a12",
-            }}
-          >
-            GT
-          </span>
-          <span className="hidden sm:block text-sm font-semibold text-[#e2e8f0] tracking-tight">
+        {/* Wordmark */}
+        <a href="#top" className="group" aria-label="George Thoppil, home">
+          <span className="text-base font-semibold text-foreground tracking-tight group-hover:text-[#06b6d4] transition-colors duration-200">
             George Thoppil
           </span>
         </a>
@@ -59,7 +51,7 @@ export default function Header() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="px-3 py-2 text-sm text-slate-400 hover:text-[#06b6d4] transition-colors duration-200"
+                  className="px-3 py-2 text-sm text-muted hover:text-[#06b6d4] transition-colors duration-200"
                 >
                   {item.label}
                 </a>
@@ -67,13 +59,15 @@ export default function Header() {
             ))}
           </ul>
 
+          <ThemeToggle />
+
           {/* Icon CTAs — always visible */}
           <a
             href="https://www.linkedin.com/in/george-thoppil"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="grid place-items-center w-9 h-9 rounded-lg border border-white/10 text-slate-300 hover:text-[#818cf8] hover:border-[#818cf8]/50 transition-colors duration-200"
+            className="grid place-items-center w-9 h-9 rounded-lg border border-hairline text-muted hover:text-[#818cf8] hover:border-[#818cf8]/50 transition-colors duration-200"
           >
             <LinkedInIcon />
           </a>
@@ -81,7 +75,7 @@ export default function Header() {
             href="/george-thoppil-resume.pdf"
             download
             aria-label="Download résumé"
-            className="grid place-items-center w-9 h-9 rounded-lg border border-white/10 text-slate-300 hover:text-[#06b6d4] hover:border-[#06b6d4]/50 transition-colors duration-200"
+            className="grid place-items-center w-9 h-9 rounded-lg border border-hairline text-muted hover:text-[#06b6d4] hover:border-[#06b6d4]/50 transition-colors duration-200"
           >
             <DownloadIcon />
           </a>

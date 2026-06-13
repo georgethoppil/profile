@@ -44,7 +44,7 @@ export default function SkillsSection() {
           transition={{ duration: 0.6 }}
         >
           <SectionLabel>Skills</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-14 text-[#e2e8f0]">Technical Toolkit</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-14 text-foreground">Technical Toolkit</h2>
         </motion.div>
 
         <div className="space-y-10">

@@ -26,7 +26,7 @@ export default function AboutSection() {
           transition={{ duration: 0.7 }}
         >
           <SectionLabel>About</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-[#e2e8f0]">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-foreground">
             Building at the intersection of{" "}
             <span className="text-[#06b6d4]">finance</span>,{" "}
             <span className="text-[#818cf8]">blockchain</span>, and{" "}
@@ -41,16 +41,16 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="space-y-4 text-slate-300 leading-relaxed"
+            className="space-y-4 text-muted leading-relaxed"
           >
             <p>
-              Passionate software engineer with over a decade of experience shipping production systems for some of the world&apos;s most demanding platforms — from Shopify&apos;s merchant infrastructure to Kraken&apos;s tokenized asset platform.
+              I&apos;m a senior engineer with over a decade shipping production systems for some of the most demanding platforms in tech. Today at <span className="text-[#06b6d4] font-semibold">Kraken</span>, I help tokenize real-world assets on-chain with the Payward Services team, including the landmark tokenization of SpaceX equity.
             </p>
             <p>
-              At <span className="text-[#06b6d4] font-semibold">Kraken</span>, I work on the Payward Services team helping tokenize real-world assets on-chain — including contributing to the tokenization of SpaceX equity. Previously at <span className="text-[#818cf8] font-semibold">Shopify</span>, I overhauled the scripts editor and drove mobile transformation for merchant-facing applications.
+              Before that, I spent four years at <span className="text-[#818cf8] font-semibold">Shopify</span> rebuilding merchant-facing infrastructure, and led backend architecture at Tier1 Financial Solutions through its acquisition by SS&amp;C. I hold a B.Eng in Computer Engineering from the University of Toronto.
             </p>
             <p>
-              I hold a B.Eng in Computer Engineering from the University of Toronto and enjoy pushing the limits of what hardware and software can do together — from CUDA kernels to Rust firmware on microcontrollers.
+              Outside the day job, I advise early-stage startups and tinker at the edges: CUDA inference on Kubernetes, vision and language models, and Rust firmware on bare-metal microcontrollers.
             </p>
           </motion.div>
 
@@ -69,7 +69,7 @@ export default function AboutSection() {
                   initial={{ opacity: 0, scale: 0.85 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.4 + i * 0.07 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border border-white/10 bg-white/5 backdrop-blur-sm text-slate-200 hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5 transition-colors duration-200"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border border-hairline bg-card backdrop-blur-sm text-foreground hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5 transition-colors duration-200"
                 >
                   <span>{item.icon}</span>
                   {item.label}

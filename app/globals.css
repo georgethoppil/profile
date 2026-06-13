@@ -1,15 +1,37 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #0a0a12;
-  --foreground: #e2e8f0;
+  /* Light theme (default) */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --card: rgba(15, 23, 42, 0.03);
+  --card-hover: rgba(15, 23, 42, 0.06);
+  --hairline: rgba(15, 23, 42, 0.1);
+  --header-bg: rgba(248, 250, 252, 0.8);
   --accent-cyan: #06b6d4;
   --accent-indigo: #818cf8;
+}
+
+.dark {
+  --background: #0a0a12;
+  --foreground: #e2e8f0;
+  --muted: #94a3b8;
+  --card: rgba(255, 255, 255, 0.04);
+  --card-hover: rgba(255, 255, 255, 0.06);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --header-bg: rgba(10, 10, 18, 0.72);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-hairline: var(--hairline);
   --color-cyan: var(--accent-cyan);
   --color-indigo: var(--accent-indigo);
   --font-sans: var(--font-geist-sans);
@@ -29,6 +51,31 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Aurora drift animations */
+@keyframes aurora-1 {
+  0% { transform: translate(-6%, -4%) scale(1); }
+  33% { transform: translate(12%, 8%) scale(1.2); }
+  66% { transform: translate(4%, 14%) scale(1.08); }
+  100% { transform: translate(-6%, -4%) scale(1); }
+}
+@keyframes aurora-2 {
+  0% { transform: translate(4%, 2%) scale(1.1); }
+  33% { transform: translate(-14%, -8%) scale(0.92); }
+  66% { transform: translate(-6%, 6%) scale(1.18); }
+  100% { transform: translate(4%, 2%) scale(1.1); }
+}
+@keyframes aurora-3 {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(10%, -12%) scale(1.22); }
+  66% { transform: translate(-10%, -4%) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="aurora-"] { animation: none !important; }
 }
 
 /* Custom scrollbar */
@@ -36,7 +83,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a12;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
   background: #06b6d4;

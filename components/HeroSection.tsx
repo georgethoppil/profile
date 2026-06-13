@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import ParticleBackground from "./ParticleBackground";
+import AuroraBackground from "./AuroraBackground";
 
 const TITLES = [
   "Senior Software Engineer",
-  "Blockchain & Web3 Builder",
-  "LLM Systems & CUDA Inference",
-  "Embedded Systems (Rust / C++)",
+  "Blockchain & Distributed Systems",
+  "Fintech & Payments Infrastructure",
+  "Exploring LLM Inference & Embedded Rust",
 ];
 
 export default function HeroSection() {
@@ -36,7 +36,7 @@ export default function HeroSection() {
 
   return (
     <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <ParticleBackground />
+      <AuroraBackground />
 
       {/* Gradient radial glow */}
       <div
@@ -63,7 +63,7 @@ export default function HeroSection() {
           transition={{ delay: 0.35, duration: 0.7 }}
           className="text-5xl sm:text-7xl font-bold mb-6 leading-tight"
           style={{
-            background: "linear-gradient(135deg, #e2e8f0 30%, #06b6d4 70%, #818cf8 100%)",
+            background: "linear-gradient(135deg, var(--foreground) 25%, #06b6d4 65%, #818cf8 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -76,13 +76,23 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="h-9 flex items-center justify-center mb-10"
+          className="h-9 flex items-center justify-center mb-5"
         >
           <span className="text-xl sm:text-2xl text-[#818cf8] font-mono">
             {displayed}
             <span className="animate-pulse">|</span>
           </span>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="text-base sm:text-lg text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          I build high-stakes backend and blockchain systems, from Shopify&apos;s
+          merchant platform to tokenizing real-world assets at Kraken.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -131,7 +141,7 @@ export default function HeroSection() {
         transition={{ delay: 1.4, duration: 0.6 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-slate-500 tracking-widest uppercase font-mono">Scroll</span>
+        <span className="text-xs text-muted tracking-widest uppercase font-mono">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
