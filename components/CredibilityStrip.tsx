@@ -16,7 +16,7 @@ export default function CredibilityStrip() {
   const inView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <section ref={ref} className="px-6 py-10 border-y border-white/5 bg-white/[0.015]">
+    <section ref={ref} className="px-6 py-10 border-y border-hairline bg-card">
       <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-8 gap-x-4">
         {ITEMS.map((item, i) => (
           <motion.div
@@ -29,7 +29,7 @@ export default function CredibilityStrip() {
             <div
               className="text-xl sm:text-2xl font-bold mb-1"
               style={{
-                background: "linear-gradient(135deg, #e2e8f0, #06b6d4)",
+                background: "linear-gradient(135deg, var(--foreground), #06b6d4)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -37,7 +37,7 @@ export default function CredibilityStrip() {
             >
               {item.value}
             </div>
-            <div className="text-[11px] text-slate-500 font-mono tracking-wide uppercase leading-tight">
+            <div className="text-[11px] text-muted font-mono tracking-wide uppercase leading-tight">
               {item.label}
             </div>
           </motion.div>
